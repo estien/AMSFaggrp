@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 //// TODO: Add the following using statement.
 //using Microsoft.WindowsAzure.MobileServices;
+using Microsoft.WindowsAzure.MobileServices;
 
 namespace GetStartedWithData
 {
@@ -29,10 +30,11 @@ namespace GetStartedWithData
         //// your mobile service, which are obtained from the Windows Azure Management Portal.
         //// Do this after you add a reference to the Mobile Services client to your project.
 
-        //public static MobileServiceClient MobileService = new MobileServiceClient(
-        //    "AppUrl",
-        //    "AppKey"
-        //);
+        public static MobileServiceClient MobileService = new MobileServiceClient(
+            "AppUrl",
+            "AppKey"
+            Kompilerer ikke før du har satt inn riktig appkey og appurl
+        );
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
