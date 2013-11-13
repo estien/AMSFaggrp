@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net.Http;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -23,8 +26,8 @@ namespace GetStartedWithData
 
     public sealed partial class MainPage : Page
     {
-		// TODO: Comment out the following line that defined the in-memory collection.
-        //private ObservableCollection<TodoItem> items = new ObservableCollection<TodoItem>();
+        private ObservableCollection<WishImage> wishImages = new ObservableCollection<WishImage>();
+
 
         private MobileServiceCollection<TodoItem, TodoItem> items;
         private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
@@ -52,8 +55,19 @@ namespace GetStartedWithData
             //items = await todoTable
             //   .Where(todoItem => todoItem.Complete == false)
             //   .ToCollectionAsync();
-           
+
+
             ListItems.ItemsSource = items;
+
+            ImageItems.ItemsSource = wishImages;
+
+            if (!items.Any()) return;
+
+            foreach (var todoItem in items)
+            {
+                var wishImage = await App.MobileService.InvokeApiAsync<WishImage>("wishlistextended", HttpMethod.Get, new Dictionary<string, string> { { "search", todoItem.Text } });
+                wishImages.Add(wishImage);
+            }
         }
 
         private async void UpdateCheckedTodoItem(TodoItem item)
@@ -83,5 +97,12 @@ namespace GetStartedWithData
         {
             RefreshTodoItems();
         }
+    }
+
+    public class WishImage
+    {
+        public string Title { get; set; }
+        public string ImageUrl { get; set; }
+        public string ThumbnailUrl { get; set; }
     }
 }

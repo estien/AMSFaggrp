@@ -33,7 +33,7 @@ namespace GetStartedWithData
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "AppUrl",
             "AppKey"
-            Kompilerer ikke før du har satt inn riktig appkey og appurl
+            //Kompilerer ikke før du har satt inn riktig appkey og appurl
         );
 
         /// <summary>
