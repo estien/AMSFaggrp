@@ -1,0 +1,13 @@
+_ReSharper*
+Bin
+obj
+bld
+*.csproj.user
+*.jsproj.user
+*.ReSharper.user
+*.resharper
+*.suo
+PerformanceLogs
+*.sap
+Thumbs.db
+AppPackages
