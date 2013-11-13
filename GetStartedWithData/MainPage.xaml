@@ -44,6 +44,7 @@
             <Grid Grid.Row="1" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 <StackPanel>
@@ -59,6 +60,22 @@
                                 <!--TODO: Replace "Id" with "Text" in the CheckBox element above and comment the following TextBlock to hide the id and restore the UI to that of quick start project-->
                                 <TextBlock Name="TodoText" Text="{Binding Text}" VerticalAlignment="Center"/>
                                 <!--<TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>-->
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <ListView Name="ImageItems" Grid.Row="2">
+                    <ListView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListView.ItemsPanel>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="{Binding ImageUrl}"/>
+                                <TextBlock Text="{Binding Title}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
