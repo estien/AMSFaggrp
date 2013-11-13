@@ -46,9 +46,9 @@ namespace GetStartedWithData
         //// MobileServiceCollectionView implements ICollectionView (useful for databinding to lists) and 
         //// is integrated with your Mobile Service to make it easy to bind your data to the ListView
         //// TODO: Uncomment the following two lines of code to replace the following collection with todoTable, 
-        //// a proxy for the table in SQL Database.
-        // private MobileServiceCollection<TodoItem, TodoItem> items;
-        // private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
+        // a proxy for the table in SQL Database.
+        //private MobileServiceCollection<TodoItem, TodoItem> items;
+        //private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
 
         public MainPage()
         {
